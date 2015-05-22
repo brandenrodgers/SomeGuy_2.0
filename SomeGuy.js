@@ -85,8 +85,13 @@ var stick_image = 'weapon_images/stick.png';
 var wspear_image = 'weapon_images/wood_spear.png';
 var wsword_image = 'weapon_images/wood_sword.png';
 var wclub_image = 'weapon_images/wood_club.png';
+var waxe_image = 'weapon_images/wood_axe.png';
 
 var isword_image = 'weapon_images/iron_sword.png';
+var ispear_image = 'weapon_images/iron_spear.png';
+var iclub_image = 'weapon_images/iron_club.png';
+var iaxe_image = 'weapon_images/iron_axe.png';
+
 
 //name, damage, condition, max condition, quantity
 var stick = new weapon("stick", 5, 10, 10, 1, stick_image);
@@ -95,13 +100,13 @@ var wsword = new weapon("wood sword", 10, 20, 20, 1, wsword_image);
 var isword = new weapon("iron sword", 25, 40, 40, 1, isword_image);
 
 var wclub = new weapon("wood club", 7, 30, 30, 1, wclub_image);
-var iclub = new weapon("iron club", 15, 50, 50, 1, wclub_image);
+var iclub = new weapon("iron club", 15, 50, 50, 1, iclub_image);
 
-var waxe = new weapon("wood axe", 10, 25, 25, 1, wclub_image);
-var iaxe = new weapon("iron axe", 20, 40, 40, 1, wclub_image);
+var waxe = new weapon("wood axe", 10, 25, 25, 1, waxe_image);
+var iaxe = new weapon("iron axe", 20, 40, 40, 1, iaxe_image);
 
 var wspear = new weapon("wood spear", 13, 15, 15, 1, wspear_image);
-var ispear = new weapon("iron spear", 30, 25, 25, 1, wspear_image);
+var ispear = new weapon("iron spear", 30, 25, 25, 1, ispear_image);
 
 /////////////////// ITEMS  ////////////////////////////////
 
@@ -447,6 +452,7 @@ function game()
 	addWeapon(waxe);
 	addWeapon(iaxe);
 
+	addWeapon(wspear);
 	addWeapon(ispear);
 	addWeapon(ispear);
 
