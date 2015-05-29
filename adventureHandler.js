@@ -28,9 +28,10 @@ function adventure(){
 	context.drawImage(adventure_screen1,0,0);
 
 	context.font = "15px Georgia";
-	context.fillText("Health: " + player.health + "/" + max_health, 220, 400);
-	context.fillText("Water: " + player.water, 220, 420);
-	context.fillText("Weapon: " + player.weapon.name, 220, 440);
+	context.fillText("Health: " + player.health + "/" + max_health, 10, 410);
+	context.fillText("Water: " + player.water, 10, 430);
+	context.fillText("Weapon", 417, 405);
+	context.fillText(player.weapon.name, 420, 427);
 
 	//Check if water is empty
 	if (player.water < 0){

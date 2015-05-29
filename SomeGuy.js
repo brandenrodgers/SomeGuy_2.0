@@ -34,6 +34,13 @@ if (document.images)
 	img[5].src = 'screens/armory_screen.png';
 	img[6] = new Image();
 	img[6].src = 'screens/weapon_screen.png';
+	img[7] = new Image();
+	img[7].src = 'screens/inventory_screen.png';
+	img[8] = new Image();
+	img[8].src = 'screens/post_fight_screen.png';
+	img[9] = new Image();
+	img[9].src = 'screens/pre_fight_screen.png';
+
 }
 
 //Load weapon images
@@ -42,7 +49,24 @@ if (document.images)
 	var weapon_img = new Array();
 	img[0] = new Image();
 	img[0].src = 'weapon_images/stick.png';
+	img[1] = new Image();
+	img[1].src = 'weapon_images/wood_spear.png';
+	img[2] = new Image();
+	img[2].src = 'weapon_images/wood_sword.png';
+	img[3] = new Image();
+	img[3].src = 'weapon_images/wood_club.png';
+	img[4] = new Image();
+	img[4].src = 'weapon_images/iron_club.png';
+	img[5] = new Image();
+	img[5].src = 'weapon_images/iron_spear.png';
+	img[6] = new Image();
+	img[6].src = 'weapon_images/wood_axe.png';
+	img[7] = new Image();
+	img[7].src = 'weapon_images/iron_axe.png';
+	img[8] = new Image();
+	img[8].src = 'weapon_images/iron_sword.png';
 }
+
 
 //////////////////// OBJECTS ///////////////////////////////
 function guy(name, weapon, health, gold, water, level){
@@ -160,16 +184,42 @@ function clickListener(event) {
     	else if (xPos >= 250 && xPos <= 500 && yPos >= 300 && yPos <= 370) {
     		current_screen = "inventory";
     	}
+    	else if (xPos >= 20 && xPos <= 250 && yPos >= 370 && yPos <= 440) {
+    		current_screen = "landMap";
+    	}
     }
     //Adventure Screen Navigation
     else if (current_screen == "adventure"){
     	//To Go Home
-    	if (xPos >= 15 && xPos <= 140 && yPos >= 440 && yPos <= 495) {
+    	if (xPos >= 210 && xPos <= 315 && yPos >= 465 && yPos <= 505) {
+    		homex = 9;
+    		homey = 17;
     		current_screen = "home";
     	}
     	//To Go Left
-    	else if (xPos >= 15 && xPos <= 130 && yPos >= 210 && yPos <= 365) {
+    	else if (xPos >= 70 && xPos <= 135 && yPos >= 170 && yPos <= 235) {
     		current_screen = "path";
+    		homex -= 1;
+    		map_blocks[homey][homex] = true;
+    	}
+    	//To Go Straight
+    	else if (xPos >= 235 && xPos <= 300 && yPos >= 170 && yPos <= 235) {
+    		current_screen = "path";
+    		homey -= 1;
+    		map_blocks[homey][homex] = true;
+    	}
+    	//To Go Right
+    	else if (xPos >= 395 && xPos <= 460 && yPos >= 170 && yPos <= 235) {
+    		current_screen = "path";
+    		homex += 1;
+    		map_blocks[homey][homex] = true;
+    	}
+    }
+    //Map Screen Navigation
+    else if (current_screen == "landMap"){
+    	//To Go Home
+    	if (xPos >= 200 && xPos <= 315 && yPos >= 460 && yPos <= 500) {
+    		current_screen = "home";
     	}
     }
     //Armory Screen Navigation
@@ -335,6 +385,9 @@ function game_handler(){
 	else if (current_screen == "inventory"){
 		inventoryHandler();
 	}
+	else if (current_screen == "landMap"){
+		landMap();
+	}
 }
 
 ////////////////// HOME MENU ///////////////////////////////////
@@ -364,9 +417,10 @@ function home(){
 	//Menu Options
 	context.font = "40px Papyrus";
 	context.fillText("Adventure", 30, 265);
-	context.fillText("Sleep", 310, 265);
+	context.fillText("Sleep", 320, 262);
 	context.fillText("Armory", 50, 335);
 	context.fillText("Inventory", 290, 335);
+	context.fillText("Map", 75, 402);
 }
 
 
